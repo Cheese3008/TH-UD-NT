@@ -96,7 +96,7 @@ calculator_app/
 ├── macos/
 ├── windows/
 ├── test/
-├── screenshots/
+├── img/
 ├── pubspec.yaml
 └── README.md
 ```
