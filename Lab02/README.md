@@ -66,7 +66,7 @@ Trong bài này, ứng dụng được thiết kế lại theo phong cách **pas
 
 Ứng dụng sử dụng phong cách **pastel mềm mại** với bảng màu chính như sau:
 
-![Calculator Screenshot](img\Lab02.png)
+![Calculator Screenshot](img/Lab02.png)
 
 - **Nền tổng thể:** tím nhạt pastel
 - **Khung chính:** tím kem nhẹ
