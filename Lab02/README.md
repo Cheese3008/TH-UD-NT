@@ -101,6 +101,8 @@ calculator_app/
 └── README.md
 ```
 
+---
+
 ## 🛠 Công nghệ sử dụng
 
 - 💙 **Flutter**
@@ -180,12 +182,6 @@ screenshots/
 ├── calculation.png
 └── result.png
 ```
-
-Sau đó có thể chèn vào README như sau:
-
-```md
-
-
 ## 🌟 Điểm nổi bật của bài làm
 
 - Đã thay hoàn toàn giao diện Flutter mặc định
