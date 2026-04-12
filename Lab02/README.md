@@ -226,10 +226,4 @@ Qua bài LAB này, em đã học được:
 
 ---
 
-## 📝 Thông tin bài LAB
-
-- **Môn học:** TI267 - Thực hành Phát triển ứng dụng di động đa nền tảng
-- **Bài thực hành:** LAB 02 - Simple Mobile Calculator
-
----
 
