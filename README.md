@@ -1,1 +1,1 @@
-"# TH-UD-NT" 
+"TI267_Thực hành Phát triển ứng dụng di động đa nền tảng (0+1)_CNTT.CQ.T103_Trần Thị Quỳnh Nga"
