@@ -24,6 +24,8 @@ Trong bài này, ứng dụng được thiết kế theo phong cách **Welcome S
 -  **Flutter Web** để chạy và xem giao diện trên trình duyệt
 
 ## 🖼 Giao diện đã thực hiện
+![Calculator Screenshot](img/Lab01.png)
+
 Ứng dụng hiện tại gồm các thành phần chính:
 1.  **Nền gradient** cho toàn màn hình
 2. **Khung card lớn ở giữa** để chứa toàn bộ nội dung
