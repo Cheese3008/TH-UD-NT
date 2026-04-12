@@ -101,8 +101,6 @@ calculator_app/
 └── README.md
 ```
 
----
-
 ## 🛠 Công nghệ sử dụng
 
 - 💙 **Flutter**
@@ -186,14 +184,7 @@ screenshots/
 Sau đó có thể chèn vào README như sau:
 
 ```md
-## Hình ảnh minh họa
 
-![Màn hình chính](screenshots/home.png)
-![Thao tác tính toán](screenshots/calculation.png)
-![Kết quả](screenshots/result.png)
-```
-
----
 
 ## 🌟 Điểm nổi bật của bài làm
 
