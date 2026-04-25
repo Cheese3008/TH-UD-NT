@@ -1,0 +1,57 @@
+name: flutter_application_1
+description: "Weather App with API Integration."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # Gọi API thời tiết
+  http: ^1.1.0
+
+  # Lấy vị trí GPS
+  geolocator: ^10.1.0
+
+  # Đổi tọa độ GPS thành tên thành phố
+  geocoding: ^2.1.1
+
+  # Quản lý state
+  provider: ^6.1.1
+
+  # Lưu cache offline, favorite cities, settings
+  shared_preferences: ^2.2.2
+
+  # Format ngày giờ
+  intl: ^0.18.1
+
+  # Hiển thị icon thời tiết từ internet
+  cached_network_image: ^3.3.0
+
+  # Đọc API key từ file .env
+  flutter_dotenv: ^5.1.0
+
+  # Kiểm tra trạng thái mạng
+  connectivity_plus: ^5.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+  # Dùng cho unit test/mock API nếu cần
+  mockito: ^5.4.4
+  build_runner: ^2.4.7
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - .env
