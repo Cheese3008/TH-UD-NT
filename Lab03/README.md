@@ -412,7 +412,7 @@ Nên kiểm thử các luồng:
 
 ---
 
-## ✅ Bộ test gợi ý
+## ✅ Test
 
 ### Số học cơ bản
 - `(5 + 3) × 2 - 4 ÷ 2 = 14`
@@ -450,57 +450,8 @@ lib/
 pubspec.yaml
 ```
 
-Tài liệu nên bổ sung:
-
-- `ARCHITECTURE.md`  
-  Giải thích cấu trúc thư mục, luồng provider, trách nhiệm từng lớp
-
-- `TESTING.md`  
-  Mô tả test case, cách chạy test, đầu ra mong đợi
 
 ---
-
-## 🚧 Hạn chế hiện tại
-
-Ở giai đoạn hiện tại, một số hạn chế có thể còn tồn tại:
-
-- Programmer mode có thể vẫn đang trong quá trình hoàn thiện
-- Một số hàm khoa học nâng cao cần kiểm thử thêm
-- Gesture support có thể chưa đầy đủ
-- Một số animation chưa được hoàn thiện ở mọi màn hình
-- Độ phủ test cần cải thiện thêm trước khi nộp cuối
-
----
-
-## 🚀 Hướng phát triển tiếp theo
-
-Các hướng mở rộng trong tương lai:
-
-- Xuất lịch sử ra CSV hoặc PDF
-- Nhập biểu thức bằng giọng nói
-- Vẽ đồ thị hàm số
-- Tạo theme tùy chỉnh
-- Hoàn thiện đầy đủ programmer mode
-- Mở rộng bộ phím khoa học
-- Thêm hiệu ứng chuyển động mượt hơn
-- Tối ưu giao diện cho tablet và landscape mode
-
----
-
-## 📖 Danh sách kiểm tra trước khi nộp
-
-Trước khi nộp bài, cần đảm bảo:
-
-- [ ] Có đủ 3 chế độ tính toán
-- [ ] Hàm khoa học hoạt động đúng
-- [ ] Parser xử lý đúng ưu tiên toán tử
-- [ ] Có lưu lịch sử
-- [ ] Chuyển theme hoạt động
-- [ ] Có màn hình settings
-- [ ] Có unit test với độ phủ tốt
-- [ ] README có ảnh minh họa
-- [ ] Kiến trúc rõ ràng
-- [ ] Không có lỗi biên dịch hoặc cảnh báo nghiêm trọng
 
 ## 👩‍💻 Thông tin sinh viên
 
