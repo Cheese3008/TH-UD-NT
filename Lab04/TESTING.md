@@ -9,6 +9,7 @@
 - **Ngày test:** 28/04/2026
 - **Người test:** Lê Nguyễn Bảo Trân
 - **Trạng thái biên dịch:** `flutter analyze` không phát hiện lỗi
+- **Bonus đã cập nhật:** Accessibility features
 
 ---
 
@@ -119,7 +120,22 @@
 
 ---
 
-## 9. UI Responsiveness Testing
+## 9. Accessibility Testing
+
+| STT | Test case | Kết quả mong đợi | Kết quả thực tế | Trạng thái |
+| --- | --- | --- | --- | --- |
+| 1 | Kiểm tra label cho card thời tiết hiện tại | Screen reader có thể đọc tóm tắt thành phố, nhiệt độ, cảm giác như và mô tả thời tiết | Đã thêm `Semantics` cho `CurrentWeatherCard` | Pass |
+| 2 | Kiểm tra label cho chi tiết thời tiết | Mỗi thông tin như độ ẩm, gió, áp suất, tầm nhìn có label rõ ràng | Đã thêm `Semantics` cho `WeatherDetailItem` với nội dung `$title: $value` | Pass |
+| 3 | Kiểm tra ô tìm kiếm trên HomeScreen | TextField có label và hint rõ ràng | Đã thêm `labelText: Tìm kiếm thành phố` và `hintText` | Pass |
+| 4 | Kiểm tra ô tìm kiếm trên SearchScreen | TextField có label và hint rõ ràng | Đã thêm `labelText: Tên thành phố` và `hintText` | Pass |
+| 5 | Kiểm tra nút thêm/xóa yêu thích | Nút favorite có mô tả rõ thao tác thêm hoặc xóa city yêu thích | Đã thêm `Semantics` cho favorite button trong SearchScreen | Pass |
+| 6 | Kiểm tra các nút AppBar | Search, Forecast, Settings, GPS Location và Refresh có mô tả thao tác | Các nút AppBar đã có `tooltip` rõ ràng | Pass |
+| 7 | Kiểm tra banner lỗi/offline | Thông báo lỗi và offline/cache dễ hiểu với người dùng | Banner hiển thị message rõ ràng khi lỗi API hoặc offline | Pass |
+| 8 | Kiểm tra khả năng điều hướng cơ bản | Người dùng có thể nhận biết các màn hình chính thông qua title và nút điều hướng | HomeScreen, SearchScreen, ForecastScreen và SettingsScreen đều có tiêu đề rõ ràng | Pass |
+
+---
+
+## 10. UI Responsiveness Testing
 
 | STT | Test case | Kết quả mong đợi | Kết quả thực tế | Trạng thái |
 | --- | --- | --- | --- | --- |
@@ -133,7 +149,7 @@
 
 ---
 
-## 10. Loading State Testing
+## 11. Loading State Testing
 
 | STT | Test case | Kết quả mong đợi | Kết quả thực tế | Trạng thái |
 | --- | --- | --- | --- | --- |
@@ -143,7 +159,7 @@
 
 ---
 
-## 11. Error Handling Testing
+## 12. Error Handling Testing
 
 | STT | Test case | Kết quả mong đợi | Kết quả thực tế | Trạng thái |
 | --- | --- | --- | --- | --- |
@@ -156,7 +172,7 @@
 
 ---
 
-## 12. Code Quality Testing
+## 13. Code Quality Testing
 
 | STT | Test case | Kết quả mong đợi | Kết quả thực tế | Trạng thái |
 | --- | --- | --- | --- | --- |
@@ -166,10 +182,30 @@
 | 4 | Kiểm tra `.env` | API key không hard-code trong code | API key được đọc từ `.env` | Pass |
 | 5 | Kiểm tra `.env.example` | Có file mẫu cho API key | `.env.example` đã được tạo | Pass |
 | 6 | Kiểm tra `.gitignore` | `.env` không được commit | `.env` đã được đưa vào `.gitignore` | Pass |
+| 7 | Kiểm tra accessibility code | Các thành phần chính có semantic label hoặc tooltip | Đã bổ sung `Semantics`, `labelText`, `hintText` và `tooltip` | Pass |
 
 ---
 
-## 13. Kết luận kiểm thử
+## 14. Tổng hợp kết quả kiểm thử
+
+| Nhóm kiểm thử | Trạng thái |
+| --- | --- |
+| API key và cấu hình môi trường | Pass |
+| API Integration | Pass |
+| HomeScreen | Pass |
+| Search Functionality | Pass |
+| Forecast | Pass |
+| Settings | Pass |
+| Offline Cache | Pass |
+| Accessibility | Pass |
+| UI Responsiveness | Pass |
+| Loading State | Pass |
+| Error Handling | Pass |
+| Code Quality | Pass |
+
+---
+
+## 15. Kết luận kiểm thử
 
 Ứng dụng đã hoàn thành các chức năng chính của Lab 4 gồm:
 
@@ -190,5 +226,14 @@
 - Hiển thị dữ liệu đã lưu khi thiết bị mất mạng.
 - Xử lý lỗi API, lỗi mất mạng và lỗi nhập liệu.
 - Giao diện responsive, không còn lỗi overflow sau khi sửa `_SearchCityBox`.
+
+Ứng dụng cũng đã bổ sung bonus **Accessibility Features**:
+
+- Thêm `Semantics` cho card thời tiết hiện tại.
+- Thêm `Semantics` cho các item chi tiết thời tiết.
+- Thêm label và hint rõ ràng cho ô tìm kiếm.
+- Thêm mô tả accessibility cho nút thêm/xóa yêu thích.
+- Duy trì tooltip cho các nút điều hướng chính.
+- Hiển thị banner lỗi và offline/cache rõ ràng cho người dùng.
 
 Kết quả kiểm thử cho thấy app hoạt động ổn định trên Chrome Web, không có lỗi biên dịch và `flutter analyze` không phát hiện lỗi.
