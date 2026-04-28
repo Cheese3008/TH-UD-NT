@@ -323,7 +323,7 @@ Kết quả:
 
 ---
 
-## 10. Kết quả kiểm thử offline cache
+## 9. Kết quả kiểm thử offline cache
 
 Quy trình test offline cache:
 
@@ -346,7 +346,7 @@ Kết quả:
 
 ---
 
-## 11. Quyền Android cần thiết
+## 10. Quyền Android cần thiết
 
 Trong file:
 
@@ -364,7 +364,7 @@ Cần có các quyền:
 
 ---
 
-## 12. Known Limitations
+## 11. Known Limitations
 
 Một số giới hạn hiện tại:
 
@@ -376,7 +376,7 @@ Một số giới hạn hiện tại:
 
 ---
 
-## 13. Future Improvements
+## 12. Future Improvements
 
 Các hướng phát triển tiếp theo:
 
@@ -392,7 +392,7 @@ Các hướng phát triển tiếp theo:
 - Tối ưu UI cho mobile nhỏ hơn.
 
 ---
-## 14. Tác giả
+## 13. Tác giả
 
 - **Họ tên:** Lê Nguyễn Bảo Trân
 - **Project:** Weather App with API Integration
