@@ -8,6 +8,7 @@
 ![Dart](https://img.shields.io/badge/Dart-Provider-blue?style=for-the-badge&logo=dart)
 ![OpenWeatherMap](https://img.shields.io/badge/API-OpenWeatherMap-orange?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
+![Bonus](https://img.shields.io/badge/Bonus-Accessibility-brightgreen?style=for-the-badge)
 
 </div>
 
@@ -28,7 +29,7 @@
 | ❤️ Favorite Cities | Lưu và quản lý danh sách thành phố yêu thích |
 | ⚙️ Settings | Đổi đơn vị nhiệt độ, tốc độ gió, định dạng thời gian |
 | 📦 Offline Cache | Hiển thị dữ liệu đã lưu khi thiết bị mất mạng |
-
+| ♿ Accessibility | Bổ sung semantic labels, tooltip và mô tả rõ ràng cho các thành phần chính |
 
 ---
 
@@ -50,6 +51,7 @@ Dự án này thuộc **Lab 4 - Weather Application with API Integration**. Mụ
 - Đổi định dạng thời gian.
 - Hiển thị dữ liệu cache khi mất mạng.
 - Xử lý lỗi API, lỗi nhập liệu và lỗi kết nối mạng.
+- Hỗ trợ accessibility cơ bản thông qua `Semantics`, `tooltip`, `labelText` và thông báo trạng thái rõ ràng.
 
 ---
 
@@ -68,6 +70,7 @@ Dự án này thuộc **Lab 4 - Weather Application with API Integration**. Mụ
 | Image Loading | cached_network_image |
 | Environment Variables | flutter_dotenv |
 | Network Status | connectivity_plus |
+| Accessibility | Flutter Semantics, Tooltip, InputDecoration label/hint |
 
 ---
 
@@ -149,9 +152,33 @@ Khi có mạng, app lưu dữ liệu thời tiết gần nhất vào cache. Khi 
 
 Ứng dụng hiển thị banner thông báo khi đang dùng dữ liệu cache.
 
+### 3.8. Accessibility Features
+
+Ứng dụng đã bổ sung accessibility cơ bản để cải thiện trải nghiệm sử dụng:
+
+- `Semantics` cho card thời tiết hiện tại.
+- `Semantics` cho các item chi tiết thời tiết như độ ẩm, gió, áp suất, tầm nhìn.
+- `labelText` và `hintText` rõ ràng cho ô tìm kiếm trên HomeScreen và SearchScreen.
+- `Semantics` cho nút thêm/xóa thành phố yêu thích.
+- `tooltip` cho các nút chính trên AppBar: Search, Forecast, Settings, GPS Location và Refresh.
+- Banner lỗi và banner offline/cache có nội dung rõ ràng, dễ hiểu.
+
 ---
 
-## 4. Cấu trúc thư mục
+## 4. Bonus Features Implemented
+
+| Bonus | Mô tả | Trạng thái |
+| --- | --- | --- |
+| Accessibility features | Thêm semantic labels, tooltip, accessible search fields và mô tả rõ cho nút favorite | Completed |
+| Beautiful weather icons | Sử dụng icon từ OpenWeatherMap và fallback Material Icons theo điều kiện thời tiết | Completed |
+| Offline-first support | Dữ liệu thời tiết gần nhất được lưu cache và hiển thị khi mất mạng | Completed |
+| Responsive UI | Giao diện có scroll, forecast ngang và layout co giãn trên Chrome Web | Completed |
+
+> Ghi chú: Các bonus lớn như weather maps, home screen widgets, notifications hoặc multiple API fallback được đưa vào mục Future Improvements vì cần cấu hình native Android/iOS hoặc thêm API/package phức tạp hơn.
+
+---
+
+## 5. Cấu trúc thư mục
 
 ```text
 lib/
@@ -198,7 +225,7 @@ lib/
 
 ---
 
-## 5. Hướng dẫn cài đặt API key
+## 6. Hướng dẫn cài đặt API key
 
 Ứng dụng sử dụng OpenWeatherMap API. Để chạy được app, cần tạo file `.env` trong thư mục gốc project.
 
@@ -232,41 +259,79 @@ OPENWEATHER_API_KEY=your_api_key_here
 
 ```gitignore
 .env
+.env.*
+!.env.example
 ```
 
-## 6. Screenshots
+---
 
-### 6.1. Home Screen - Current Weather
+## 7. Cách chạy project
+
+### Bước 1: Cài dependencies
+
+```bash
+flutter pub get
+```
+
+### Bước 2: Kiểm tra lỗi
+
+```bash
+flutter analyze
+```
+
+Kết quả mong đợi:
+
+```text
+No issues found!
+```
+
+### Bước 3: Chạy app trên Chrome
+
+```bash
+flutter run -d chrome
+```
+
+### Bước 4: Chạy app trên thiết bị Android
+
+```bash
+flutter run
+```
+
+---
+
+## 8. Screenshots
+
+### 8.1. Home Screen - Current Weather
 
 ![Home Current Weather](screenshots/01_home_current_weather.png)
 
-### 6.2. Current Location Weather - GPS
+### 8.2. Current Location Weather - GPS
 
 ![Current Location Weather](screenshots/06_current_location_gps.png)
 
-### 6.3. Search Screen
+### 8.3. Search Screen
 
 ![Search Screen](screenshots/02_search_screen.png)
 
-### 6.4. Forecast Screen
+### 8.4. Forecast Screen
 
 ![Forecast Screen](screenshots/03_forecast_screen.png)
 
-### 6.5. Settings Screen
+### 8.5. Settings Screen
 
 ![Settings Screen](screenshots/04_settings_screen.png)
 
-### 6.6. Error State
+### 8.6. Error State
 
 ![Error State](screenshots/05_error_state.png)
 
-### 6.7. Offline Cache
+### 8.7. Offline Cache
 
 ![Offline Cache](screenshots/05_offline_cache.png)
 
 ---
 
-## 7. Testing
+## 9. Testing
 
 Dự án đã được kiểm thử thủ công với các nhóm test chính:
 
@@ -279,6 +344,7 @@ Dự án đã được kiểm thử thủ công với các nhóm test chính:
 - UI Responsiveness Testing.
 - Loading State Testing.
 - Error Handling Testing.
+- Accessibility Testing.
 - Code Quality Testing.
 
 File kiểm thử chi tiết:
@@ -297,13 +363,27 @@ Một số kết quả chính:
 | Forecast | Pass |
 | Settings | Pass |
 | Offline Cache | Pass |
+| Accessibility | Pass |
 | UI Responsiveness | Pass |
 | Error Handling | Pass |
 | Flutter Analyze | No issues found |
 
 ---
 
-## 8. Kết quả kiểm thử GPS
+## 10. Accessibility Testing
+
+| STT | Test case | Kết quả mong đợi | Kết quả thực tế | Trạng thái |
+| --- | --- | --- | --- | --- |
+| 1 | Kiểm tra label cho card thời tiết | Screen reader có thể đọc thông tin thời tiết hiện tại | Đã thêm `Semantics` cho `CurrentWeatherCard` | Pass |
+| 2 | Kiểm tra label cho weather details | Mỗi thông tin như độ ẩm, gió, áp suất có label rõ ràng | Đã thêm `Semantics` cho `WeatherDetailItem` | Pass |
+| 3 | Kiểm tra ô tìm kiếm HomeScreen | TextField có label và hint rõ ràng | Đã thêm `labelText` và `hintText` | Pass |
+| 4 | Kiểm tra ô tìm kiếm SearchScreen | TextField có label và hint rõ ràng | Đã thêm `labelText` và `hintText` | Pass |
+| 5 | Kiểm tra nút yêu thích | Nút favorite có mô tả thêm/xóa city yêu thích | Đã thêm `Semantics label` | Pass |
+| 6 | Kiểm tra các nút AppBar | Các nút chính có tooltip rõ ràng | Search, Forecast, Settings, GPS, Refresh đều có tooltip | Pass |
+
+---
+
+## 11. Kết quả kiểm thử GPS
 
 Quy trình test GPS:
 
@@ -323,7 +403,7 @@ Kết quả:
 
 ---
 
-## 9. Kết quả kiểm thử offline cache
+## 12. Kết quả kiểm thử offline cache
 
 Quy trình test offline cache:
 
@@ -343,10 +423,9 @@ Kết quả:
 - App tiếp tục hiển thị dữ liệu cache gần nhất.
 - Khi bật lại mạng và refresh, app tải lại dữ liệu từ API bình thường.
 
-
 ---
 
-## 10. Quyền Android cần thiết
+## 13. Quyền Android cần thiết
 
 Trong file:
 
@@ -364,7 +443,42 @@ Cần có các quyền:
 
 ---
 
-## 11. Known Limitations
+## 14. Các lệnh hữu ích
+
+### Format code
+
+```bash
+dart format lib test
+```
+
+### Analyze project
+
+```bash
+flutter analyze
+```
+
+### Run tests
+
+```bash
+flutter test
+```
+
+### Clean project
+
+```bash
+flutter clean
+flutter pub get
+```
+
+### Run on Chrome
+
+```bash
+flutter run -d chrome
+```
+
+---
+
+## 15. Known Limitations
 
 Một số giới hạn hiện tại:
 
@@ -373,10 +487,11 @@ Một số giới hạn hiện tại:
 - Một số city có thể hiển thị tên theo ngôn ngữ hoặc định dạng do API trả về.
 - Dự báo 5 ngày được tổng hợp từ endpoint forecast 3-hour interval của OpenWeatherMap.
 - Trên Chrome Web, quyền GPS phụ thuộc trình duyệt và cấu hình thiết bị.
+- Multi-language hiện mới có setting lưu lựa chọn, chưa dịch toàn bộ nội dung giao diện.
 
 ---
 
-## 12. Future Improvements
+## 16. Future Improvements
 
 Các hướng phát triển tiếp theo:
 
@@ -387,12 +502,71 @@ Các hướng phát triển tiếp theo:
 - Thêm weather alerts.
 - Thêm multi-language đầy đủ.
 - Thêm weather map.
+- Thêm multiple weather API fallback.
 - Thêm home screen widget cho Android.
 - Viết thêm unit test cho service, provider và storage.
 - Tối ưu UI cho mobile nhỏ hơn.
 
 ---
-## 13. Tác giả
+
+## 17. Submission Notes
+
+Khi nộp bài:
+
+### GitHub Repository
+
+Tên repository đề xuất:
+
+```text
+flutter_weather_app_le_nguyen_bao_tran
+```
+
+Repository cần có:
+
+- Source code Flutter.
+- `README.md`.
+- `TESTING.md`.
+- `.env.example`.
+- `screenshots/`.
+- `test/`.
+
+Không được commit:
+
+- `.env`
+- `build/`
+- `.dart_tool/`
+- `ios/Pods/`
+
+### ZIP nộp E-learning
+
+Tên file ZIP đề xuất:
+
+```text
+WeatherApp_[StudentID]_LeNguyenBaoTran.zip
+```
+
+Trước khi zip cần xóa:
+
+```text
+build/
+.dart_tool/
+ios/Pods/
+.env
+```
+
+Giữ lại:
+
+```text
+.env.example
+README.md
+TESTING.md
+screenshots/
+test/
+```
+
+---
+
+## 18. Tác giả
 
 - **Họ tên:** Lê Nguyễn Bảo Trân
 - **Project:** Weather App with API Integration

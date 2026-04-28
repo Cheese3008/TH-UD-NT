@@ -255,6 +255,7 @@ class _SearchCityBox extends StatelessWidget {
               textInputAction: TextInputAction.search,
               onSubmitted: (_) => onSearch(),
               decoration: const InputDecoration(
+                labelText: 'Tìm kiếm thành phố',
                 hintText: 'Nhập tên thành phố...',
                 border: InputBorder.none,
               ),

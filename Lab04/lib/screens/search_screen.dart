@@ -178,6 +178,7 @@ class _SearchInputBox extends StatelessWidget {
               textInputAction: TextInputAction.search,
               onSubmitted: (_) => onSearch(),
               decoration: const InputDecoration(
+                labelText: 'Tên thành phố',
                 hintText: 'Ví dụ: Ha Noi, Da Nang, Tokyo...',
                 border: InputBorder.none,
               ),
@@ -254,16 +255,22 @@ class _CurrentCityResultCard extends StatelessWidget {
               ],
             ),
           ),
-          IconButton(
-            tooltip: isFavorite ? 'Xóa khỏi yêu thích' : 'Thêm vào yêu thích',
-            onPressed: () {
-              context.read<WeatherProvider>().toggleCurrentCityFavorite();
-            },
-            icon: Icon(
-              isFavorite
-                  ? Icons.favorite_rounded
-                  : Icons.favorite_border_rounded,
-              color: isFavorite ? Colors.red : Colors.grey.shade700,
+          Semantics(
+            button: true,
+            label: isFavorite
+                ? 'Xóa ${weather.cityName} khỏi danh sách yêu thích'
+                : 'Thêm ${weather.cityName} vào danh sách yêu thích',
+            child: IconButton(
+              tooltip: isFavorite ? 'Xóa khỏi yêu thích' : 'Thêm vào yêu thích',
+              onPressed: () {
+                context.read<WeatherProvider>().toggleCurrentCityFavorite();
+              },
+              icon: Icon(
+                isFavorite
+                    ? Icons.favorite_rounded
+                    : Icons.favorite_border_rounded,
+                color: isFavorite ? Colors.red : Colors.grey.shade700,
+              ),
             ),
           ),
         ],
