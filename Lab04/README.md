@@ -18,7 +18,11 @@
 
 **Weather App** là ứng dụng thời tiết được xây dựng bằng **Flutter**, tích hợp **OpenWeatherMap API** để hiển thị dữ liệu thời tiết theo thời gian thực. Ứng dụng hỗ trợ xem thời tiết hiện tại, dự báo theo giờ, dự báo 5 ngày, tìm kiếm thành phố, lấy thời tiết theo vị trí GPS, lưu thành phố yêu thích, lưu lịch sử tìm kiếm, tùy chỉnh đơn vị hiển thị và sử dụng dữ liệu cache khi thiết bị offline.
 
-### ✨ Tính năng nổi bật
+Dự án thuộc **Lab 4 - Weather Application with API Integration**. Mục tiêu chính là xây dựng một ứng dụng Flutter có khả năng gọi API thực tế, xử lý dữ liệu JSON, quản lý trạng thái bằng Provider, lưu dữ liệu bằng SharedPreferences và hiển thị giao diện responsive.
+
+---
+
+## ✨ Tính năng nổi bật
 
 | Nhóm chức năng | Mô tả |
 | --- | --- |
@@ -30,12 +34,11 @@
 | ⚙️ Settings | Đổi đơn vị nhiệt độ, tốc độ gió, định dạng thời gian |
 | 📦 Offline Cache | Hiển thị dữ liệu đã lưu khi thiết bị mất mạng |
 | ♿ Accessibility | Bổ sung semantic labels, tooltip và mô tả rõ ràng cho các thành phần chính |
+| 🖼️ Weather Icons | Hiển thị icon thời tiết từ OpenWeatherMap và icon fallback khi tải ảnh lỗi |
 
 ---
 
-## 1. Giới thiệu dự án
-
-Dự án này thuộc **Lab 4 - Weather Application with API Integration**. Mục tiêu chính là xây dựng một ứng dụng thời tiết có khả năng gọi API thực tế, xử lý dữ liệu JSON, quản lý trạng thái bằng Provider, lưu dữ liệu bằng SharedPreferences và hiển thị giao diện responsive trên Flutter.
+## 1. Mô tả dự án
 
 Ứng dụng cho phép người dùng:
 
@@ -74,7 +77,7 @@ Dự án này thuộc **Lab 4 - Weather Application with API Integration**. Mụ
 
 ---
 
-## 3. Tính năng chính
+## 3. Chức năng chính
 
 ### 3.1. Current Weather
 
@@ -178,54 +181,67 @@ Khi có mạng, app lưu dữ liệu thời tiết gần nhất vào cache. Khi 
 
 ---
 
-## 5. Cấu trúc thư mục
+## 5. Cấu trúc kho lưu trữ
 
 ```text
-lib/
-  main.dart
-
-  config/
-    api_config.dart
-
-  models/
-    weather_model.dart
-    forecast_model.dart
-    location_model.dart
-    hourly_weather_model.dart
-
-  services/
-    weather_service.dart
-    location_service.dart
-    storage_service.dart
-    connectivity_service.dart
-
-  providers/
-    weather_provider.dart
-    location_provider.dart
-
-  screens/
-    home_screen.dart
-    search_screen.dart
-    forecast_screen.dart
-    settings_screen.dart
-
-  widgets/
-    current_weather_card.dart
-    daily_forecast_card.dart
-    error_widget.dart
-    hourly_forecast_list.dart
-    loading_shimmer.dart
-    weather_detail_item.dart
-
-  utils/
-    constants.dart
-    date_formatter.dart
-    weather_icons.dart
+flutter_weather_app_le_nguyen_bao_tran/
+├── android/
+├── ios/
+├── lib/
+│   ├── main.dart
+│   ├── config/
+│   │   └── api_config.dart
+│   ├── models/
+│   │   ├── weather_model.dart
+│   │   ├── forecast_model.dart
+│   │   ├── location_model.dart
+│   │   └── hourly_weather_model.dart
+│   ├── services/
+│   │   ├── weather_service.dart
+│   │   ├── location_service.dart
+│   │   ├── storage_service.dart
+│   │   └── connectivity_service.dart
+│   ├── providers/
+│   │   ├── weather_provider.dart
+│   │   └── location_provider.dart
+│   ├── screens/
+│   │   ├── home_screen.dart
+│   │   ├── search_screen.dart
+│   │   ├── forecast_screen.dart
+│   │   └── settings_screen.dart
+│   ├── widgets/
+│   │   ├── current_weather_card.dart
+│   │   ├── daily_forecast_card.dart
+│   │   ├── error_widget.dart
+│   │   ├── hourly_forecast_list.dart
+│   │   ├── loading_shimmer.dart
+│   │   └── weather_detail_item.dart
+│   └── utils/
+│       ├── constants.dart
+│       ├── date_formatter.dart
+│       └── weather_icons.dart
+├── screenshots/
+│   ├── 01_home_current_weather.png
+│   ├── 02_search_screen.png
+│   ├── 03_forecast_screen.png
+│   ├── 04_settings_screen.png
+│   ├── 05_error_state.png
+│   ├── 05_offline_cache.png
+│   ├── 06_current_location_gps.png
+│   ├── 08_night_weather.png
+│   └── 09_loading_state.png
+├── test/
+├── .env.example
+├── .gitignore
+├── README.md
+├── TESTING.md
+├── pubspec.yaml
+└── pubspec.lock
 ```
 
 ---
 
-## 6. Hướng dẫn cài đặt API key
+## 6. Hướng dẫn thiết lập API key
 
 Ứng dụng sử dụng OpenWeatherMap API. Để chạy được app, cần tạo file `.env` trong thư mục gốc project.
 
@@ -263,9 +279,11 @@ OPENWEATHER_API_KEY=your_api_key_here
 !.env.example
 ```
 
+> Không commit API key thật lên GitHub. Chỉ commit `.env.example`.
+
 ---
 
-## 7. Cách chạy project
+## 7. Cách chạy dự án
 
 ### Bước 1: Cài dependencies
 
@@ -301,33 +319,51 @@ flutter run
 
 ## 8. Screenshots
 
-### 8.1. Home Screen - Current Weather
+### 8.1. Thời tiết trong / nắng
 
-![Home Current Weather](screenshots/01_home_current_weather.png)
+![Clear or Sunny Weather](screenshots/01_home_current_weather.png)
 
-### 8.2. Current Location Weather - GPS
+### 8.2. Thời tiết mưa
 
-![Current Location Weather](screenshots/06_current_location_gps.png)
+![Rainy Weather](screenshots/01_home_current_weather.png)
 
-### 8.3. Search Screen
+### 8.3. Thời tiết nhiều mây
+
+![Cloudy Weather](screenshots/06_current_location_gps.png)
+
+### 8.4. Chế độ ban đêm
+
+![Night Weather](screenshots/08_night_weather.png)
+
+### 8.5. Màn hình tìm kiếm
 
 ![Search Screen](screenshots/02_search_screen.png)
 
-### 8.4. Forecast Screen
+### 8.6. Màn hình dự báo
 
 ![Forecast Screen](screenshots/03_forecast_screen.png)
 
-### 8.5. Settings Screen
-
-![Settings Screen](screenshots/04_settings_screen.png)
-
-### 8.6. Error State
+### 8.7. Trạng thái lỗi
 
 ![Error State](screenshots/05_error_state.png)
 
-### 8.7. Offline Cache
+### 8.8. Trạng thái đang tải
+
+![Loading State](screenshots/09_loading_state.png)
+
+### 8.9. GPS Current Location
+
+![Current Location Weather](screenshots/06_current_location_gps.png)
+
+### 8.10. Settings Screen
+
+![Settings Screen](screenshots/04_settings_screen.png)
+
+### 8.11. Offline Cache
 
 ![Offline Cache](screenshots/05_offline_cache.png)
+
+> Lưu ý: Nếu ảnh `01_home_current_weather.png` không phải điều kiện thời tiết trong/nắng, có thể chụp thêm một ảnh nắng và lưu với tên `07_clear_weather.png`, sau đó đổi đường dẫn mục 8.1 thành `screenshots/07_clear_weather.png`.
 
 ---
 
@@ -441,7 +477,132 @@ Cần có các quyền:
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 ```
 
-## 14. Tác giả
+---
+
+## 14. Hạn chế đã biết
+
+Một số giới hạn hiện tại:
+
+- Cache hiện tại lưu dữ liệu gần nhất, chưa lưu riêng cache cho từng thành phố.
+- Một số city có thể hiển thị tên theo ngôn ngữ hoặc định dạng do API trả về.
+- Dự báo 5 ngày được tổng hợp từ endpoint forecast 3-hour interval của OpenWeatherMap.
+- Trên Chrome Web, quyền GPS phụ thuộc trình duyệt và cấu hình thiết bị.
+- Multi-language hiện mới có setting lưu lựa chọn, chưa dịch toàn bộ nội dung giao diện.
+- Weather alerts, weather map và home screen widget chưa được triển khai vì cần thêm cấu hình native hoặc API/phụ thuộc bổ sung.
+
+---
+
+## 15. Cải tiến trong tương lai
+
+Các hướng phát triển tiếp theo:
+
+- Lưu cache riêng cho từng thành phố.
+- Thêm biểu đồ nhiệt độ theo giờ.
+- Thêm weather animation.
+- Thêm air quality index.
+- Thêm weather alerts.
+- Thêm multi-language đầy đủ.
+- Thêm weather map.
+- Thêm multiple weather API fallback.
+- Thêm home screen widget cho Android.
+- Viết thêm unit test cho service, provider và storage.
+- Tối ưu UI cho mobile nhỏ hơn.
+
+---
+
+## 16. Các lệnh hữu ích
+
+### Format code
+
+```bash
+dart format lib test
+```
+
+### Analyze project
+
+```bash
+flutter analyze
+```
+
+### Run tests
+
+```bash
+flutter test
+```
+
+### Clean project
+
+```bash
+flutter clean
+flutter pub get
+```
+
+### Run on Chrome
+
+```bash
+flutter run -d chrome
+```
+
+---
+
+## 17. Submission Notes
+
+Khi nộp bài:
+
+### GitHub Repository
+
+Tên repository theo yêu cầu:
+
+```text
+flutter_weather_app_le_nguyen_bao_tran
+```
+
+Repository cần có:
+
+- Source code Flutter.
+- `README.md`.
+- `TESTING.md`.
+- `.env.example`.
+- `screenshots/`.
+- `test/`.
+
+Không được commit:
+
+- `.env`
+- `build/`
+- `.dart_tool/`
+- `ios/Pods/`
+
+### ZIP nộp E-learning
+
+Tên file ZIP đề xuất:
+
+```text
+WeatherApp_[MSSV]_LeNguyenBaoTran.zip
+```
+
+Trước khi zip cần xóa:
+
+```text
+build/
+.dart_tool/
+ios/Pods/
+.env
+```
+
+Giữ lại:
+
+```text
+.env.example
+README.md
+TESTING.md
+screenshots/
+test/
+```
+
+---
+
+## 18. Tác giả
 
 - **Họ tên:** Lê Nguyễn Bảo Trân
 - **Project:** Weather App with API Integration
