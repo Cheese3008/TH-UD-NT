@@ -1,6 +1,34 @@
-# Weather App with API Integration
+<div align="center">
 
-Ứng dụng **Weather App** được xây dựng bằng Flutter, sử dụng OpenWeatherMap API để hiển thị thời tiết hiện tại, dự báo thời tiết, tìm kiếm theo thành phố, lấy thời tiết theo vị trí GPS hiện tại, lưu thành phố yêu thích, lưu lịch sử tìm kiếm, hỗ trợ cài đặt đơn vị hiển thị và cache dữ liệu khi offline.
+# 🌦️ Weather App with API Integration
+
+### Ứng dụng thời tiết Flutter sử dụng OpenWeatherMap API
+
+![Flutter](https://img.shields.io/badge/Flutter-Weather%20App-blue?style=for-the-badge&logo=flutter)
+![Dart](https://img.shields.io/badge/Dart-Provider-blue?style=for-the-badge&logo=dart)
+![OpenWeatherMap](https://img.shields.io/badge/API-OpenWeatherMap-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
+
+</div>
+
+---
+
+## 📌 Tổng quan
+
+**Weather App** là ứng dụng thời tiết được xây dựng bằng **Flutter**, tích hợp **OpenWeatherMap API** để hiển thị dữ liệu thời tiết theo thời gian thực. Ứng dụng hỗ trợ xem thời tiết hiện tại, dự báo theo giờ, dự báo 5 ngày, tìm kiếm thành phố, lấy thời tiết theo vị trí GPS, lưu thành phố yêu thích, lưu lịch sử tìm kiếm, tùy chỉnh đơn vị hiển thị và sử dụng dữ liệu cache khi thiết bị offline.
+
+### ✨ Tính năng nổi bật
+
+| Nhóm chức năng | Mô tả |
+| --- | --- |
+| 🌤️ Thời tiết hiện tại | Hiển thị nhiệt độ, mô tả thời tiết, icon, độ ẩm, gió, áp suất, tầm nhìn |
+| 🔍 Tìm kiếm thành phố | Tìm thời tiết theo tên thành phố và lưu lịch sử tìm kiếm |
+| 📍 GPS Location | Lấy thời tiết theo vị trí hiện tại của người dùng |
+| 📅 Forecast | Hiển thị dự báo theo giờ và dự báo 5 ngày |
+| ❤️ Favorite Cities | Lưu và quản lý danh sách thành phố yêu thích |
+| ⚙️ Settings | Đổi đơn vị nhiệt độ, tốc độ gió, định dạng thời gian |
+| 📦 Offline Cache | Hiển thị dữ liệu đã lưu khi thiết bị mất mạng |
+
 
 ---
 
