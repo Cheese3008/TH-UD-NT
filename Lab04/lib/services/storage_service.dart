@@ -21,14 +21,6 @@ class StorageService {
   static const int maxFavoriteCities = 5;
   static const int maxRecentSearches = 10;
 
-  /// Mô tả:
-  /// Lưu dữ liệu thời tiết hiện tại vào bộ nhớ máy.
-  ///
-  /// Input:
-  /// - weather: dữ liệu WeatherModel lấy từ API.
-  ///
-  /// Output:
-  /// - Không trả về dữ liệu, chỉ lưu cache.
   Future<void> saveWeatherData(WeatherModel weather) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -39,12 +31,6 @@ class StorageService {
     );
   }
 
-  /// Mô tả:
-  /// Lấy dữ liệu thời tiết đã cache.
-  ///
-  /// Output:
-  /// - WeatherModel nếu có cache.
-  /// - null nếu chưa có cache hoặc cache bị lỗi.
   Future<WeatherModel?> getCachedWeather() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? rawWeather = prefs.getString(_cachedWeatherKey);
@@ -70,11 +56,6 @@ class StorageService {
     }
   }
 
-  /// Mô tả:
-  /// Lưu danh sách forecast vào cache.
-  ///
-  /// Input:
-  /// - forecasts: danh sách ForecastModel.
   Future<void> saveForecastData(List<ForecastModel> forecasts) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -85,12 +66,7 @@ class StorageService {
     await prefs.setString(_cachedForecastKey, jsonEncode(forecastJsonList));
   }
 
-  /// Mô tả:
-  /// Đọc danh sách forecast đã cache.
-  ///
-  /// Output:
-  /// - Danh sách ForecastModel nếu có cache.
-  /// - [] nếu chưa có cache hoặc dữ liệu lỗi.
+
   Future<List<ForecastModel>> getCachedForecast() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? rawForecast = prefs.getString(_cachedForecastKey);
@@ -122,15 +98,6 @@ class StorageService {
     }
   }
 
-  /// Mô tả:
-  /// Kiểm tra cache thời tiết có còn hợp lệ không.
-  ///
-  /// Logic:
-  /// - Mặc định cache hợp lệ trong 30 phút.
-  ///
-  /// Output:
-  /// - true nếu cache còn mới.
-  /// - false nếu cache đã cũ hoặc chưa có cache.
   Future<bool> isWeatherCacheValid({
     Duration maxAge = const Duration(minutes: 30),
   }) async {
@@ -150,12 +117,7 @@ class StorageService {
     return cacheAge <= maxAge;
   }
 
-  /// Mô tả:
-  /// Lấy thời điểm cập nhật cache gần nhất.
-  ///
-  /// Output:
-  /// - DateTime nếu có.
-  /// - null nếu chưa từng lưu cache.
+
   Future<DateTime?> getLastWeatherUpdateTime() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final int? lastUpdate = prefs.getInt(_lastWeatherUpdateKey);
@@ -167,8 +129,6 @@ class StorageService {
     return DateTime.fromMillisecondsSinceEpoch(lastUpdate);
   }
 
-  /// Mô tả:
-  /// Xóa cache thời tiết và forecast.
   Future<void> clearWeatherCache() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -177,12 +137,6 @@ class StorageService {
     await prefs.remove(_lastWeatherUpdateKey);
   }
 
-  /// Mô tả:
-  /// Lưu danh sách thành phố yêu thích.
-  ///
-  /// Logic:
-  /// - Tối đa 5 thành phố.
-  /// - Tự loại bỏ city rỗng.
   Future<void> saveFavoriteCities(List<String> cities) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -196,16 +150,12 @@ class StorageService {
     await prefs.setStringList(_favoriteCitiesKey, normalizedCities);
   }
 
-  /// Mô tả:
-  /// Lấy danh sách thành phố yêu thích.
   Future<List<String>> getFavoriteCities() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     return prefs.getStringList(_favoriteCitiesKey) ?? [];
   }
 
-  /// Mô tả:
-  /// Thêm một thành phố vào danh sách yêu thích.
   Future<void> addFavoriteCity(String cityName) async {
     final String city = cityName.trim();
 
@@ -224,8 +174,6 @@ class StorageService {
     await saveFavoriteCities(cities);
   }
 
-  /// Mô tả:
-  /// Xóa một thành phố khỏi danh sách yêu thích.
   Future<void> removeFavoriteCity(String cityName) async {
     final String city = cityName.trim();
 
@@ -238,8 +186,6 @@ class StorageService {
     await saveFavoriteCities(cities);
   }
 
-  /// Mô tả:
-  /// Kiểm tra một thành phố có nằm trong danh sách yêu thích không.
   Future<bool> isFavoriteCity(String cityName) async {
     final String city = cityName.trim().toLowerCase();
     final List<String> cities = await getFavoriteCities();
@@ -247,8 +193,7 @@ class StorageService {
     return cities.any((String item) => item.toLowerCase() == city);
   }
 
-  /// Mô tả:
-  /// Lưu lịch sử tìm kiếm.
+
   Future<void> saveRecentSearches(List<String> searches) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -262,16 +207,13 @@ class StorageService {
     await prefs.setStringList(_recentSearchesKey, normalizedSearches);
   }
 
-  /// Mô tả:
-  /// Lấy lịch sử tìm kiếm.
   Future<List<String>> getRecentSearches() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     return prefs.getStringList(_recentSearchesKey) ?? [];
   }
 
-  /// Mô tả:
-  /// Thêm một thành phố vào lịch sử tìm kiếm.
+
   Future<void> addRecentSearch(String cityName) async {
     final String city = cityName.trim();
 
@@ -290,89 +232,56 @@ class StorageService {
     await saveRecentSearches(searches);
   }
 
-  /// Mô tả:
-  /// Xóa toàn bộ lịch sử tìm kiếm.
+
   Future<void> clearRecentSearches() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     await prefs.remove(_recentSearchesKey);
   }
 
-  /// Mô tả:
-  /// Lưu đơn vị nhiệt độ.
-  ///
-  /// Giá trị đề xuất:
-  /// - celsius
-  /// - fahrenheit
   Future<void> saveTemperatureUnit(String unit) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     await prefs.setString(_temperatureUnitKey, unit);
   }
 
-  /// Mô tả:
-  /// Lấy đơn vị nhiệt độ.
   Future<String> getTemperatureUnit() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     return prefs.getString(_temperatureUnitKey) ?? 'celsius';
   }
 
-  /// Mô tả:
-  /// Lưu đơn vị tốc độ gió.
-  ///
-  /// Giá trị đề xuất:
-  /// - ms
-  /// - kmh
-  /// - mph
   Future<void> saveWindSpeedUnit(String unit) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     await prefs.setString(_windSpeedUnitKey, unit);
   }
 
-  /// Mô tả:
-  /// Lấy đơn vị tốc độ gió.
   Future<String> getWindSpeedUnit() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     return prefs.getString(_windSpeedUnitKey) ?? 'ms';
   }
 
-  /// Mô tả:
-  /// Lưu định dạng giờ.
-  ///
-  /// Giá trị đề xuất:
-  /// - 24h
-  /// - 12h
+
   Future<void> saveTimeFormat(String format) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     await prefs.setString(_timeFormatKey, format);
   }
 
-  /// Mô tả:
-  /// Lấy định dạng giờ.
   Future<String> getTimeFormat() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     return prefs.getString(_timeFormatKey) ?? '24h';
   }
 
-  /// Mô tả:
-  /// Lưu ngôn ngữ hiển thị.
-  ///
-  /// Ví dụ:
-  /// - vi
-  /// - en
   Future<void> saveLanguage(String languageCode) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     await prefs.setString(_languageKey, languageCode);
   }
 
-  /// Mô tả:
-  /// Lấy ngôn ngữ hiển thị.
   Future<String> getLanguage() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 

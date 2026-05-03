@@ -4,26 +4,9 @@ import 'package:geolocator/geolocator.dart';
 import '../models/location_model.dart';
 
 class LocationService {
-  /// Mô tả:
-  /// Kiểm tra dịch vụ GPS của thiết bị có đang bật hay không.
-  ///
-  /// Output:
-  /// - true: GPS đang bật.
-  /// - false: GPS đang tắt.
   Future<bool> isLocationServiceEnabled() async {
     return Geolocator.isLocationServiceEnabled();
   }
-
-  /// Mô tả:
-  /// Kiểm tra và yêu cầu quyền truy cập vị trí.
-  ///
-  /// Logic:
-  /// - Nếu GPS chưa bật thì báo lỗi.
-  /// - Nếu quyền đang bị từ chối thì xin quyền.
-  /// - Nếu quyền bị từ chối vĩnh viễn thì báo lỗi để người dùng mở Settings.
-  ///
-  /// Output:
-  /// - true nếu app có quyền lấy vị trí.
   Future<bool> checkAndRequestPermission() async {
     final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
 
@@ -54,11 +37,6 @@ class LocationService {
     return true;
   }
 
-  /// Mô tả:
-  /// Lấy tọa độ GPS hiện tại của thiết bị.
-  ///
-  /// Output:
-  /// - Position chứa latitude, longitude và các thông tin GPS khác.
   Future<Position> getCurrentPosition() async {
     await checkAndRequestPermission();
 
@@ -73,15 +51,6 @@ class LocationService {
     }
   }
 
-  /// Mô tả:
-  /// Chuyển tọa độ GPS thành tên thành phố.
-  ///
-  /// Input:
-  /// - latitude: vĩ độ.
-  /// - longitude: kinh độ.
-  ///
-  /// Output:
-  /// - Tên thành phố hoặc khu vực gần nhất.
   Future<String> getCityName({
     required double latitude,
     required double longitude,
@@ -112,16 +81,6 @@ class LocationService {
     }
   }
 
-  /// Mô tả:
-  /// Chuyển tọa độ GPS thành LocationModel đầy đủ.
-  ///
-  /// Input:
-  /// - latitude: vĩ độ.
-  /// - longitude: kinh độ.
-  /// - isCurrentLocation: đánh dấu đây có phải vị trí hiện tại không.
-  ///
-  /// Output:
-  /// - LocationModel gồm tọa độ, thành phố, quốc gia và địa chỉ đầy đủ.
   Future<LocationModel> getLocationModelFromCoordinates({
     required double latitude,
     required double longitude,
@@ -165,11 +124,6 @@ class LocationService {
     }
   }
 
-  /// Mô tả:
-  /// Lấy vị trí hiện tại và trả về LocationModel.
-  ///
-  /// Output:
-  /// - LocationModel của vị trí hiện tại.
   Future<LocationModel> getCurrentLocationModel() async {
     final Position position = await getCurrentPosition();
 
