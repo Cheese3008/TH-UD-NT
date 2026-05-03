@@ -21,6 +21,14 @@
 Dự án thuộc **Lab 4 - Weather Application with API Integration**. Mục tiêu chính là xây dựng một ứng dụng Flutter có khả năng gọi API thực tế, xử lý dữ liệu JSON, quản lý trạng thái bằng Provider, lưu dữ liệu bằng SharedPreferences và hiển thị giao diện responsive.
 
 ---
+## 🎬 Video demo ứng dụng
+
+> Video demo hoàn chỉnh từ A-Z: giới thiệu cấu trúc dự án, các file code, thư viện sử dụng và các chức năng chính của ứng dụng.
+
+[▶️ Xem video demo trên Google Drive](https://drive.google.com/file/d/1jv_19fQSSEKHL1gwnhfNE3og6m_cC8NL/view?usp=sharing)
+
+
+---
 
 ## ✨ Tính năng nổi bật
 
