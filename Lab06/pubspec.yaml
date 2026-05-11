@@ -1,0 +1,32 @@
+name: offline_music_player
+description: Lab 6 - Simple Offline Music Player using Flutter.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  just_audio: ^0.9.36
+  provider: ^6.1.1
+  shared_preferences: ^2.2.2
+  path_provider: ^2.1.1
+  permission_handler: ^11.1.0
+  file_picker: ^6.1.1
+  on_audio_query: ^2.9.0
+  audio_session: ^0.1.18
+  rxdart: ^0.27.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/audio/sample_songs/
+    - assets/images/
