@@ -88,9 +88,3 @@ Tạo thư mục `screenshots/` và lưu các ảnh:
 - Thêm lyrics.
 - Thêm audio visualizer.
 - Thêm dynamic theme theo màu album art.
-
-## 10. Gợi ý comment khi upload E-learning
-Audio formats tested: MP3, M4A.  
-Device tested on: Android device / emulator.  
-Extra features implemented: playlist, search, shuffle, repeat, volume, file picker import.  
-Challenges faced: permission handling on Android 13+, missing metadata, empty music library handling.
